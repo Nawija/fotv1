@@ -19,26 +19,26 @@ import { Facebook, Instagram } from "lucide-react";
 
 export function Nav() {
     return (
-        <header className="bg-primary w-full z-[999]">
+        <header className="bg-[#EDECEB] w-full z-[999] px-4">
             <nav className="flex justify-between items-center space-x-2 py-4 max-w-screen-2xl mx-auto">
                 <div className="flex justify-start">
                     <Link
                         href="/"
-                        className={`${great_vibes.className} text-4xl font-semibold text-white mr-10`}
+                        className={`${great_vibes.className} text-2xl lg:text-4xl font-semibold text-black mr-10`}
                     >
-                        Lorem Logo
+                        Jarek Olszewski
                     </Link>
 
                     <NavigationMenuDemo />
                 </div>
-                <div className="flex justify-end space-x-2 text-white/60">
+                <div className="flex justify-end space-x-2 text-black/60">
                     <Facebook
                         size={37}
-                        className="hover:bg-white/10 p-2 rounded-full hover:text-white/80 transition-colors"
+                        className="hover:bg-black/10 p-2 rounded-full hover:text-black/80 transition-colors"
                     />
                     <Instagram
                         size={37}
-                        className="hover:bg-white/10 p-2 rounded-full hover:text-white/80 transition-colors"
+                        className="hover:bg-black/10 p-2 rounded-full hover:text-black/80 transition-colors"
                     />
                 </div>
             </nav>
@@ -86,7 +86,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function NavigationMenuDemo() {
     return (
-        <NavigationMenu>
+        <NavigationMenu className="hidden lg:block">
             <NavigationMenuList>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Fotografia</NavigationMenuTrigger>
@@ -94,7 +94,7 @@ export function NavigationMenuDemo() {
                         <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                             <li className="row-span-3">
                                 <NavigationMenuLink asChild>
-                                    <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
+                                    <div className="flex h-full w-full select-none flex-col justify-end bg-primary p-2 no-underline outline-none focus:shadow-md">
                                         <img src="https://images.unsplash.com/photo-1627587455150-c878b7ae9d34?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                                     </div>
                                 </NavigationMenuLink>
@@ -159,7 +159,7 @@ const ListItem = React.forwardRef<
                 <a
                     ref={ref}
                     className={cn(
-                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent text-black focus:bg-accent focus:text-accent-foreground",
                         className
                     )}
                     {...props}
