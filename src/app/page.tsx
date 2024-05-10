@@ -1,5 +1,6 @@
 import EmblaCarousel from "@/components/EmblaCarousel/EmblaCarousel";
 import { Button } from "@/components/ui/button";
+import { EmblaOptionsType } from "embla-carousel";
 
 export default function Home() {
     const OPTIONS: EmblaOptionsType = { loop: true };
