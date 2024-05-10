@@ -19,11 +19,16 @@ export function Nav() {
     return (
         <header className="bg-primary w-full z-[999]">
             <nav className="flex justify-start items-center space-x-4 p-3 max-w-screen-2xl mx-auto">
-                <Link href="/" className="text-2xl font-semibold text-white">
-                    LOGO
-                </Link>
+                <div>
+                    <Link
+                        href="/"
+                        className="text-2xl font-semibold text-white"
+                    >
+                        LOGO
+                    </Link>
 
-                <NavigationMenuDemo />
+                    <NavigationMenuDemo />
+                </div>
             </nav>
         </header>
     );
