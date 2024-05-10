@@ -24,7 +24,7 @@ export default function RootLayout({
                 )}
             >
                 <Nav />
-                <main className="p-4 mx-auto max-w-screen-2xl">{children}</main>
+                <main>{children}</main>
                 <div className="h-[200vh]" />
             </body>
         </html>

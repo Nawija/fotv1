@@ -1,7 +1,9 @@
-import Image from "next/image";
+import { CarouselProps } from "@/components/CarouselProps";
 
 export default function Home() {
-  return (
-    <main>hi</main>
-  );
+    return (
+        <>
+            <CarouselProps />
+        </>
+    );
 }

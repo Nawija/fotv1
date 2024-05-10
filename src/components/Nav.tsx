@@ -14,20 +14,32 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { great_vibes } from "@/Fonts/Fonts";
+import { Facebook, Instagram } from "lucide-react";
 
 export function Nav() {
     return (
         <header className="bg-primary w-full z-[999]">
-            <nav className="flex justify-start items-center space-x-4 p-3 max-w-screen-2xl mx-auto">
-                <div>
+            <nav className="flex justify-between items-center space-x-2 py-4 max-w-screen-2xl mx-auto">
+                <div className="flex justify-start">
                     <Link
                         href="/"
-                        className="text-2xl font-semibold text-white"
+                        className={`${great_vibes.className} text-4xl font-semibold text-white mr-10`}
                     >
-                        LOGO
+                        Lorem Logo
                     </Link>
 
                     <NavigationMenuDemo />
+                </div>
+                <div className="flex justify-end space-x-2 text-white/60">
+                    <Facebook
+                        size={37}
+                        className="hover:bg-white/10 p-2 rounded-full hover:text-white/80 transition-colors"
+                    />
+                    <Instagram
+                        size={37}
+                        className="hover:bg-white/10 p-2 rounded-full hover:text-white/80 transition-colors"
+                    />
                 </div>
             </nav>
         </header>
@@ -77,27 +89,14 @@ export function NavigationMenuDemo() {
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>
-                        Getting started
-                    </NavigationMenuTrigger>
+                    <NavigationMenuTrigger>Fotografia</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                             <li className="row-span-3">
                                 <NavigationMenuLink asChild>
-                                    <a
-                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                        href="/"
-                                    >
-                                        <div className="mb-2 mt-4 text-lg font-medium">
-                                            shadcn/ui
-                                        </div>
-                                        <p className="text-sm leading-tight text-muted-foreground">
-                                            Beautifully designed components that
-                                            you can copy and paste into your
-                                            apps. Accessible. Customizable. Open
-                                            Source.
-                                        </p>
-                                    </a>
+                                    <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
+                                        <img src="https://images.unsplash.com/photo-1627587455150-c878b7ae9d34?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                                    </div>
                                 </NavigationMenuLink>
                             </li>
                             <ListItem href="/docs" title="Introduction">
