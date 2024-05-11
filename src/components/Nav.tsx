@@ -18,7 +18,7 @@ import { Facebook, Instagram } from "lucide-react";
 
 export function Nav() {
     return (
-        <header className="bg-white text-black border-b border-gray-100 w-full z-[999] px-4 py-6">
+        <header className="bg-white text-black border-b border-black/10 w-full z-[999] px-4 py-6">
             <nav className="flex justify-between items-center space-x-2 max-w-screen-2xl mx-auto">
                 <Link
                     href="/"

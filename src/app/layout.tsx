@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { cormorant } from "@/Fonts/Fonts";
+import HeaderInfo from "@/components/HeaderInfo";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -23,6 +24,7 @@ export default function RootLayout({
                     cormorant.variable
                 )}
             >
+                <HeaderInfo />
                 <Nav />
                 <main className="w-full overflow-x-hidden">{children}</main>
                 <div className="h-[200vh]" />
