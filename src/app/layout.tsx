@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 import "./globals.css";
 import { Nav } from "@/components/Nav";
-import { inter } from "@/Fonts/Fonts";
+import { cormorant } from "@/Fonts/Fonts";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -20,11 +20,11 @@ export default function RootLayout({
             <body
                 className={cn(
                     "bg-[##FFFFFF] min-h-screen font-sans antialiased",
-                    inter.variable
+                    cormorant.variable
                 )}
             >
                 <Nav />
-                <main>{children}</main>
+                <main className="w-full overflow-x-hidden">{children}</main>
                 <div className="h-[200vh]" />
             </body>
         </html>

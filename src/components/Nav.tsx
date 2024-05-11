@@ -14,22 +14,27 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { great_vibes } from "@/Fonts/Fonts";
 import { Facebook, Instagram } from "lucide-react";
 
 export function Nav() {
     return (
-        <header className="bg-[#EDECEB] w-full z-[999] px-4">
-            <nav className="flex justify-between items-center space-x-2 py-4 max-w-screen-2xl mx-auto">
-                <div className="flex justify-start">
+        <header className="bg-white border-b border-gray-100 w-full z-[999] px-4 py-6">
+            <nav className="flex justify-between items-center space-x-2 max-w-screen-2xl mx-auto">
+                <div className="flex justify-start items-center">
                     <Link
                         href="/"
-                        className={`${great_vibes.className} text-2xl lg:text-4xl font-semibold text-black mr-10`}
+                        className={`text-2xl lg:text-3xl uppercase font-medium text-black mr-10`}
                     >
                         Jarek Olszewski
                     </Link>
 
-                    <NavigationMenuDemo />
+                    <div className="space-x-8 font-medium text-lg hidden lg:block">
+                        <Link href="/">Fotografia</Link>
+                        <Link href="/">Portfolio</Link>
+                        <Link href="/">Oferta</Link>
+                        <Link href="/">Blog</Link>
+                        <Link href="/">Kontakt</Link>
+                    </div>
                 </div>
                 <div className="flex justify-end space-x-2 text-black/60">
                     <Facebook

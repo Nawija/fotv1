@@ -10,7 +10,7 @@ import {
 import useEmblaCarousel from "embla-carousel-react";
 
 import Autoplay from "embla-carousel-autoplay";
-const TWEEN_FACTOR_BASE = 0.84;
+const TWEEN_FACTOR_BASE = 0.7;
 
 const numberWithinRange = (number: number, min: number, max: number): number =>
     Math.min(Math.max(number, min), max);
@@ -96,7 +96,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                     {slides.map((index) => (
                         <div className="embla__slide" key={index}>
                             <img
-                                className="embla__slide__img"
+                                className="w-full object-cover object-center h-80 xl:h-[44rem]"
                                 src={`https://picsum.photos/600/350?v=${index}`}
                                 alt="Your alt text"
                             />
