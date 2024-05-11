@@ -28,14 +28,14 @@ export default function Home() {
                 </Link>
             </section>
             <EmblaCarousel slides={SLIDES} options={OPTIONS} />
-            <section className="my-12 lg:my-24 max-w-screen-2xl mx-auto space-y-8">
-                <h2 className="text-center text-3xl font-bold max-w-screen-lg mx-auto mb-24">
+            <section className="max-w-screen-2xl mx-auto space-y-8">
+                <h2 className="text-center text-3xl font-bold max-w-screen-lg mx-auto my-12 lg:my-20">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Distinctio quo perferendis, dolores totam
                 </h2>
-                <div className="flex items-center justify-center">
+                <div className="flex lg:flex-row lg:my-24 flex-col items-center justify-center">
                     <img
-                        className="w-1/2"
+                        className="lg:w-1/2 w-11/12"
                         src="https://plus.unsplash.com/premium_photo-1670985849616-6aa6c441e0bf?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     />
                     <div className="p-10 space-y-4">
@@ -62,10 +62,10 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="my-12 lg:my-24 max-w-screen-2xl mx-auto space-y-8">
-                <div className="flex items-center justify-center">
+            <section className="max-w-screen-2xl mx-auto space-y-8">
+                <div className="flex lg:flex-row lg:my-24 flex-col items-center justify-center">
                     <img
-                        className="w-1/2 order-1"
+                        className="lg:w-1/2 w-11/12 lg:order-1"
                         src="https://plus.unsplash.com/premium_photo-1670985849616-6aa6c441e0bf?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     />
                     <div className="p-10 space-y-4">
@@ -92,10 +92,10 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="my-12 lg:my-24 max-w-screen-2xl mx-auto space-y-8">
-                <div className="flex items-center justify-center">
+            <section className="max-w-screen-2xl mx-auto space-y-8">
+                <div className="flex lg:flex-row lg:my-24 flex-col items-center justify-center">
                     <img
-                        className="w-1/2"
+                        className="lg:w-1/2 w-11/12"
                         src="https://plus.unsplash.com/premium_photo-1670985849616-6aa6c441e0bf?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     />
                     <div className="p-10 space-y-4">
@@ -123,7 +123,7 @@ export default function Home() {
                 </div>
             </section>
             <section className="my-12 lg:my-24 max-w-screen-2xl mx-auto space-y-8 relative">
-                <div className="flex items-center justify-between max-w-screen-lg mx-auto">
+                <div className="flex items-center justify-between max-w-screen-lg mx-auto px-4">
                     <h2 className="text-3xl font-bold">Opinie</h2>
                     <div>
                         <div className="flex items-center space-x-1">

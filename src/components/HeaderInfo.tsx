@@ -1,9 +1,12 @@
+import { inter } from "@/Fonts/Fonts";
 import { Mail, Phone } from "lucide-react";
 import React from "react";
 
 export default function HeaderInfo() {
     return (
-        <div className="flex items-center justify-end bg-black text-white text-sm p-2">
+        <div
+            className={`${inter.className} flex items-center justify-end bg-black text-white text-xs font-light px-4 py-2`}
+        >
             <div className="max-w-screen-2xl flex space-x-6">
                 <div className="flex items-center justify-center space-x-1">
                     <Mail size={16} />
