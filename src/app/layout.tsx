@@ -5,6 +5,7 @@ import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { cormorant } from "@/Fonts/Fonts";
 import HeaderInfo from "@/components/HeaderInfo";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -27,7 +28,7 @@ export default function RootLayout({
                 <HeaderInfo />
                 <Nav />
                 <main className="w-full overflow-x-hidden">{children}</main>
-                <div className="h-[200vh]" />
+                <Footer />
             </body>
         </html>
     );
