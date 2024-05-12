@@ -25,7 +25,7 @@ export function Nav() {
                         className={`space-x-2 font-bold text-lg uppercase hidden lg:block mr-20`}
                     >
                         {NAV_LINKS.map((link) => (
-                            <NavLink href={link.href}>
+                            <NavLink key={link.title} href={link.href}>
                                 {link.title}
                                 <div className="h-px w-full absolute bottom-1 left-0 bg-color scale-x-0 group-hover:scale-x-50 transition-transform rounded-xl" />
                             </NavLink>
