@@ -4,7 +4,17 @@ import React, { useEffect } from "react";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 
-export default function Gallery({ allImages }) {
+type Image = {
+    url: string;
+    width: number;
+    height: number;
+};
+
+type GalleryProps = {
+    allImages: Image[];
+};
+
+export default function Gallery({ allImages }: GalleryProps) {
     useEffect(() => {
         let lightbox = new PhotoSwipeLightbox({
             gallery: ".pswp-gallery",
@@ -15,7 +25,6 @@ export default function Gallery({ allImages }) {
 
         return () => {
             lightbox.destroy();
-            lightbox = null;
         };
     }, [allImages]);
 
