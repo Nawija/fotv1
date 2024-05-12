@@ -6,6 +6,7 @@ import { Nav } from "@/components/Nav";
 import { cormorant } from "@/Fonts/Fonts";
 import HeaderInfo from "@/components/HeaderInfo";
 import Footer from "@/components/Footer";
+import NextTopLoader from "nextjs-toploader";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -19,15 +20,33 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="pl">
+            <head>
+                <meta name="theme-color" content="#000000" />
+            </head>
             <body
                 className={cn(
                     "bg-[##FFFFFF] min-h-screen font-sans antialiased",
                     cormorant.variable
                 )}
             >
+                <NextTopLoader
+                    color="#9C916A"
+                    initialPosition={0.08}
+                    crawlSpeed={200}
+                    height={3}
+                    crawl={true}
+                    showSpinner={false}
+                    easing="ease"
+                    speed={200}
+                    shadow="0 0 25px #9C916A,0 0 15px #9C916A"
+                    zIndex={1600}
+                    showAtBottom={false}
+                />
                 <HeaderInfo />
                 <Nav />
-                <main className="w-full overflow-x-hidden">{children}</main>
+                <main className="w-full overflow-x-hidden min-h-screen">
+                    {children}
+                </main>
                 <Footer />
             </body>
         </html>

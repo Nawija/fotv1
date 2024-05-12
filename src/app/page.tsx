@@ -3,30 +3,15 @@ import EmblaCarousel from "@/components/EmblaCarousel/EmblaCarousel";
 import { EmblaOptionsType } from "embla-carousel";
 import { Star } from "lucide-react";
 import Link from "next/link";
+import Hero from "./_components/Hero";
 
 export default function Home() {
     const OPTIONS: EmblaOptionsType = { loop: true };
     const SLIDE_COUNT = 5;
     const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
     return (
-        <>
-            <section className="flex items-center justify-center flex-col max-w-screen-lg mx-auto space-y-4 lg:space-y-10 my-12 lg:my-24 text-center px-4">
-                <h1 className=" text-2xl lg:text-4xl xl:text-7xl font-bold">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Iste numquam cumque eos.
-                </h1>
-                <p className="text-stone-600 lg:text-xl max-w-screen-md mx-auto">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ducimus neque odio veritatis dignissimos animi ipsam eaque a
-                    voluptas earum. Consequuntur quaerat
-                </p>
-                <Link
-                    href="/"
-                    className="uppercase px-5 py-2 border font-bold lg:text-lg text-xs tracking-wider bg-black text-white border-black"
-                >
-                    Zobacz
-                </Link>
-            </section>
+        <div className="anim-opacity">
+            <Hero />
             <EmblaCarousel slides={SLIDES} options={OPTIONS} />
             <section className="max-w-screen-2xl mx-auto space-y-8">
                 <h2 className="text-center text-3xl font-bold max-w-screen-lg mx-auto my-12 lg:my-20">
@@ -141,6 +126,6 @@ export default function Home() {
                 <div className="w-1/2 h-full absolute left-0 top-0 bg-gradient-to-tr from-white to-transparent" />
                 <AlignEmblaCarousel slides={SLIDES} options={OPTIONS} />
             </section>
-        </>
+        </div>
     );
 }
