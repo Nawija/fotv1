@@ -4,15 +4,27 @@ import { EmblaOptionsType } from "embla-carousel";
 import { Star } from "lucide-react";
 import Link from "next/link";
 import Hero from "./_components/Hero";
+import { performRequest } from "@/lib/datocms";
 
-export default function Home() {
+const PAGE_CONTENT_QUERY = `
+{
+    allHeros {
+      img {
+        url
+      }
+    }
+  }`;
+
+export default async function Home() {
+    const {
+        data: { allHeros },
+    } = await performRequest({ query: PAGE_CONTENT_QUERY });
+
     const OPTIONS: EmblaOptionsType = { loop: true };
-    const SLIDE_COUNT = 5;
-    const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
     return (
         <div className="anim-opacity">
             <Hero />
-            <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+            <EmblaCarousel allHeros={allHeros} options={OPTIONS} />
             <section className="max-w-screen-2xl mx-auto space-y-8">
                 <h2 className="text-center text-3xl font-bold max-w-screen-lg mx-auto my-12 lg:my-20">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -124,7 +136,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="w-1/2 h-full absolute left-0 top-0 bg-gradient-to-tr from-white to-transparent" />
-                <AlignEmblaCarousel slides={SLIDES} options={OPTIONS} />
+                <AlignEmblaCarousel allHeros={allHeros} options={OPTIONS} />
             </section>
         </div>
     );

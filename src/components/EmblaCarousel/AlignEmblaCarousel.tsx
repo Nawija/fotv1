@@ -9,14 +9,15 @@ import {
 } from "./EmblaCarouselArrowButtons";
 import "./embla.css";
 import useEmblaCarousel from "embla-carousel-react";
+import { HeroType } from "@/types/types";
 
 type PropType = {
-    slides: number[];
+    allHeros: [];
     options?: EmblaOptionsType;
 };
 
 const AlignEmblaCarousel: React.FC<PropType> = (props) => {
-    const { slides, options } = props;
+    const { allHeros, options } = props;
     const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
     const { selectedIndex, scrollSnaps, onDotButtonClick } =
@@ -33,13 +34,13 @@ const AlignEmblaCarousel: React.FC<PropType> = (props) => {
         <section className="embla">
             <div className="embla__viewport" ref={emblaRef}>
                 <div className="embla__container">
-                    {slides.map((index) => (
+                    {allHeros.map((hero: HeroType, index) => (
                         <div className="embla__slide" key={index}>
                             <div className="p-10 border space-y-6">
                                 <div className="flex items-center justify-start space-x-3">
                                     <img
                                         className="w-12 h-12 rounded-full object-cover object-center"
-                                        src={`https://picsum.photos/600/350?v=${index}`}
+                                        src={hero.img.url}
                                         alt="Your alt text"
                                     />
                                     <h4 className="text-xl font-bold">

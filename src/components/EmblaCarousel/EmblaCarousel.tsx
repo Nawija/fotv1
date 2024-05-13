@@ -10,18 +10,19 @@ import {
 import useEmblaCarousel from "embla-carousel-react";
 
 import Autoplay from "embla-carousel-autoplay";
+import { HeroType } from "@/types/types";
 const TWEEN_FACTOR_BASE = 0.7;
 
 const numberWithinRange = (number: number, min: number, max: number): number =>
     Math.min(Math.max(number, min), max);
 
 type PropType = {
-    slides: number[];
+    allHeros: [];
     options?: EmblaOptionsType;
 };
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-    const { slides, options } = props;
+    const { allHeros, options } = props;
     const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
     const tweenFactor = useRef(0);
 
@@ -93,11 +94,11 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         <div className="embla">
             <div className="embla__viewport" ref={emblaRef}>
                 <div className="embla__container">
-                    {slides.map((index) => (
+                    {allHeros.map((hero: HeroType, index: number) => (
                         <div className="embla__slide" key={index}>
                             <img
                                 className="w-full object-cover object-center h-80 xl:h-[44rem]"
-                                src={`https://picsum.photos/600/350?v=${index}`}
+                                src={hero.img.url}
                                 alt="Your alt text"
                             />
                         </div>
