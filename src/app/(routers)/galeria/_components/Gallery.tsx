@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 
@@ -42,7 +42,7 @@ export default function Gallery({ allImages }: GalleryProps) {
                     <img
                         className="object-cover w-full h-full -z-10"
                         src={image.url}
-                        alt=""
+                        alt="xx"
                     />
                 </a>
             ))}

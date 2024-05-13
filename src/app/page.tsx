@@ -4,7 +4,7 @@ const EmblaCarousel = dynamic(
 const ArticlesSeo = dynamic(() => import("@/app/_components/ArticlesSeo"));
 const Reviews = dynamic(() => import("@/app/_components/Reviews"));
 import { EmblaOptionsType } from "embla-carousel";
-import Hero from "../_components/Hero";
+import Hero from "./_components/Hero";
 import { performRequest } from "@/lib/datocms";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
