@@ -1,12 +1,15 @@
 import AlignEmblaCarousel from "@/components/EmblaCarousel/AlignEmblaCarousel";
-import EmblaCarousel from "@/components/EmblaCarousel/EmblaCarousel";
+const EmblaCarousel = dynamic(
+    () => import("@/components/EmblaCarousel/EmblaCarousel")
+);
 import { EmblaOptionsType } from "embla-carousel";
 import { Star } from "lucide-react";
 import Link from "next/link";
 import Hero from "./_components/Hero";
 import { performRequest } from "@/lib/datocms";
 import { Suspense } from "react";
-import { EmblaCarouselCardsSkeleton } from "@/components/Skeletons/Skeletons";
+import dynamic from "next/dynamic";
+// import { EmblaCarouselCardsSkeleton } from "@/components/Skeletons/Skeletons";
 
 const PAGE_CONTENT_QUERY = `
 {
@@ -25,8 +28,18 @@ export default async function Home() {
     const OPTIONS: EmblaOptionsType = { loop: true };
     return (
         <div className="anim-opacity">
-            <Hero />
-            <Suspense fallback={<EmblaCarouselCardsSkeleton />}>
+            <Suspense
+                fallback={
+                    <p className="text-red-500 text-6xl">Loading feed...</p>
+                }
+            >
+                <Hero />
+            </Suspense>
+            <Suspense
+                fallback={
+                    <p className="text-red-500 text-6xl">Loading feed...</p>
+                }
+            >
                 <EmblaCarousel allHeros={allHeros} options={OPTIONS} />
             </Suspense>
             <section className="max-w-screen-2xl mx-auto space-y-8">

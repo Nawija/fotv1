@@ -4,6 +4,7 @@ export const performRequest = async ({
     variables = {},
     includeDrafts = false,
 }) => {
+    
     const response = await fetch("https://graphql.datocms.com/", {
         next: { revalidate: 0 },
         headers: {

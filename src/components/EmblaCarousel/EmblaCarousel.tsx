@@ -79,6 +79,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         },
         []
     );
+    
 
     useEffect(() => {
         if (!emblaApi) return;
