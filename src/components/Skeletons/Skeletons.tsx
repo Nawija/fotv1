@@ -1,6 +1,4 @@
-import React from "react";
-
-export default function EmblaCarouselCardsSkeleton() {
+export function EmblaCarouselCardsSkeleton() {
     return (
         <div className="embla">
             <div className="embla__viewport">

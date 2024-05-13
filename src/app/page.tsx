@@ -6,6 +6,7 @@ import Link from "next/link";
 import Hero from "./_components/Hero";
 import { performRequest } from "@/lib/datocms";
 import { Suspense } from "react";
+import { EmblaCarouselCardsSkeleton } from "@/components/Skeletons/Skeletons";
 
 const PAGE_CONTENT_QUERY = `
 {
@@ -25,10 +26,9 @@ export default async function Home() {
     return (
         <div className="anim-opacity">
             <Hero />
-            <Suspense fallback={}>
-
+            <Suspense fallback={<EmblaCarouselCardsSkeleton />}>
+                <EmblaCarousel allHeros={allHeros} options={OPTIONS} />
             </Suspense>
-            <EmblaCarousel allHeros={allHeros} options={OPTIONS} />
             <section className="max-w-screen-2xl mx-auto space-y-8">
                 <h2 className="text-center text-3xl font-bold max-w-screen-lg mx-auto my-12 lg:my-20">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
