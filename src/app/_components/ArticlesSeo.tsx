@@ -1,47 +1,6 @@
-import AlignEmblaCarousel from "@/components/EmblaCarousel/AlignEmblaCarousel";
-const EmblaCarousel = dynamic(
-    () => import("@/components/EmblaCarousel/EmblaCarousel")
-);
-import { EmblaOptionsType } from "embla-carousel";
-import { Star } from "lucide-react";
-import Link from "next/link";
-import Hero from "./_components/Hero";
-import { performRequest } from "@/lib/datocms";
-import { Suspense } from "react";
-import dynamic from "next/dynamic";
-// import { EmblaCarouselCardsSkeleton } from "@/components/Skeletons/Skeletons";
-
-const PAGE_CONTENT_QUERY = `
-{
-    allHeros {
-      img {
-        url
-      }
-    }
-  }`;
-
-export default async function Home() {
-    const {
-        data: { allHeros },
-    } = await performRequest({ query: PAGE_CONTENT_QUERY });
-
-    const OPTIONS: EmblaOptionsType = { loop: true };
+export default function ArticlesSeo() {
     return (
-        <div className="anim-opacity">
-            <Suspense
-                fallback={
-                    <p className="text-red-500 text-6xl">Loading feed...</p>
-                }
-            >
-                <Hero />
-            </Suspense>
-            <Suspense
-                fallback={
-                    <p className="text-red-500 text-6xl">Loading feed...</p>
-                }
-            >
-                <EmblaCarousel allHeros={allHeros} options={OPTIONS} />
-            </Suspense>
+        <div>
             <section className="max-w-screen-2xl mx-auto space-y-8">
                 <h2 className="text-center text-3xl font-bold max-w-screen-lg mx-auto my-12 lg:my-20">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -135,25 +94,6 @@ export default async function Home() {
                         </p>
                     </div>
                 </div>
-            </section>
-            <section className="my-12 lg:my-24 max-w-screen-2xl mx-auto space-y-8 relative">
-                <div className="flex items-center justify-between max-w-screen-lg mx-auto px-4">
-                    <h2 className="text-3xl font-bold">Opinie</h2>
-                    <div>
-                        <div className="flex items-center space-x-1">
-                            <Star fill="orange" color="none" />
-                            <Star fill="orange" color="none" />
-                            <Star fill="orange" color="none" />
-                            <Star fill="orange" color="none" />
-                            <span className="font-bold text-lg">5/5</span>
-                        </div>
-                        <Link className="text-end" href="/">
-                            Wiecej opini
-                        </Link>
-                    </div>
-                </div>
-                <div className="w-1/2 h-full absolute left-0 top-0 bg-gradient-to-tr from-white to-transparent" />
-                <AlignEmblaCarousel allHeros={allHeros} options={OPTIONS} />
             </section>
         </div>
     );

@@ -60,7 +60,7 @@ export function NavLink(props: Omit<ComponentProps<typeof Link>, "className">) {
         <Link
             {...props}
             className={cn(
-                "p-2 font-normal text-zinc-500 relative group hover:text-black transition-colors", bitter.className,
+                "p-2 font-medium text-sm text-zinc-500 relative group hover:text-black transition-colors", bitter.className,
                 pathname === props.href && "text-black"
             )}
         />
