@@ -10,6 +10,7 @@ import {
 import "./embla.css";
 import useEmblaCarousel from "embla-carousel-react";
 import { HeroType } from "@/types/types";
+import Image from "next/image";
 
 type PropType = {
     allHeros: [];
@@ -38,11 +39,14 @@ const AlignEmblaCarousel: React.FC<PropType> = (props) => {
                         <div className="embla__slide" key={index}>
                             <div className="p-10 border space-y-6">
                                 <div className="flex items-center justify-start space-x-3">
-                                    <img
-                                        className="w-12 h-12 rounded-full object-cover object-center"
-                                        src={hero.img.url}
-                                        alt="Your alt text"
-                                    />
+                                    <div className="relative w-12 h-12">
+                                        <Image
+                                            className="rounded-full object-cover object-center"
+                                            src={hero.img.url}
+                                            alt="Your alt text"
+                                            layout="fill"
+                                        />
+                                    </div>
                                     <h4 className="text-xl font-bold">
                                         Loremipsum dolor
                                     </h4>

@@ -11,6 +11,7 @@ import useEmblaCarousel from "embla-carousel-react";
 
 import Autoplay from "embla-carousel-autoplay";
 import { HeroType } from "@/types/types";
+import Image from "next/image";
 const TWEEN_FACTOR_BASE = 0.7;
 
 const numberWithinRange = (number: number, min: number, max: number): number =>
@@ -96,11 +97,14 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                 <div className="embla__container">
                     {allHeros.map((hero: HeroType, index: number) => (
                         <div className="embla__slide" key={index}>
-                            <img
-                                className="w-full object-cover object-center h-80 xl:h-[44rem]"
-                                src={hero.img.url}
-                                alt="Your alt text"
-                            />
+                            <div className="relative w-full h-80 xl:h-[44rem]">
+                                <Image
+                                    className="object-cover object-center"
+                                    src={hero.img.url}
+                                    alt="Your alt text"
+                                    layout="fill"
+                                />
+                            </div>
                         </div>
                     ))}
                 </div>
