@@ -7,7 +7,7 @@ import React, { ComponentProps } from "react";
 
 import { Facebook, Instagram } from "lucide-react";
 import { NAV_LINKS } from "@/constants/Links";
-import { inter } from "@/Fonts/Fonts";
+import { bitter, inter } from "@/Fonts/Fonts";
 
 export function Nav() {
     return (
@@ -60,7 +60,7 @@ export function NavLink(props: Omit<ComponentProps<typeof Link>, "className">) {
         <Link
             {...props}
             className={cn(
-                "p-2 font-bold text-zinc-500 relative group hover:text-black transition-colors",
+                "p-2 font-normal text-zinc-500 relative group hover:text-black transition-colors", bitter.className,
                 pathname === props.href && "text-black"
             )}
         />
