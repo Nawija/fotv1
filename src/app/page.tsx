@@ -1,13 +1,20 @@
-const EmblaCarousel = dynamic(
-    () => import("@/components/EmblaCarousel/EmblaCarousel")
-);
-const ArticlesSeo = dynamic(() => import("@/app/_components/ArticlesSeo"));
-const Reviews = dynamic(() => import("@/app/_components/Reviews"));
-import { EmblaOptionsType } from "embla-carousel";
-import Hero from "./_components/Hero";
 import { performRequest } from "@/lib/datocms";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
+
+import { EmblaOptionsType } from "embla-carousel";
+
+const Hero = dynamic(() => import("./_components/Hero"));
+const EmblaCarousel = dynamic(
+    () => import("@/components/EmblaCarousel/EmblaCarousel"),
+    { ssr: false }
+);
+const ArticlesSeo = dynamic(() => import("@/app/_components/ArticlesSeo"), {
+    ssr: false,
+});
+const Reviews = dynamic(() => import("@/app/_components/Reviews"), {
+    ssr: false,
+});
 
 const PAGE_CONTENT_QUERY = `
 {
@@ -25,7 +32,7 @@ export default async function Home() {
 
     const OPTIONS: EmblaOptionsType = { loop: true };
     return (
-        <div className="anim-opacity">
+        <>
             <Suspense
                 fallback={
                     <p className="text-red-500 text-6xl">Loading feed...</p>
@@ -54,6 +61,6 @@ export default async function Home() {
             >
                 <Reviews allHeros={allHeros} OPTIONS={OPTIONS} />
             </Suspense>
-        </div>
+        </>
     );
 }
