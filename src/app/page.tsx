@@ -20,7 +20,12 @@ const PAGE_CONTENT_QUERY = `
 {
     allHeros {
       img {
-        url
+        responsiveImage {
+          width
+          height
+          base64
+          src
+        }
       }
     }
   }`;

@@ -51,6 +51,7 @@ export default function Gallery({ allImages }: GalleryProps) {
                         height={image.responsiveImage.height}
                         width={image.responsiveImage.width}
                         blurDataURL={image.responsiveImage.base64}
+                        placeholder="blur"
                     />
                 </a>
             ))}

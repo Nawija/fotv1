@@ -1,5 +1,10 @@
 export type HeroType = {
     img: {
-        url: string;
+        responsiveImage: {
+            width: number;
+            height: number;
+            base64: string;
+            src: string;
+        };
     };
 };

@@ -42,7 +42,7 @@ const AlignEmblaCarousel: React.FC<PropType> = (props) => {
                                     <div className="relative w-12 h-12">
                                         <Image
                                             className="rounded-full object-cover object-center"
-                                            src={hero.img.url}
+                                            src={hero.img.responsiveImage.src}
                                             alt="Your alt text"
                                             layout="fill"
                                         />

@@ -12,7 +12,7 @@ import { bitter, inter } from "@/Fonts/Fonts";
 export function Nav() {
     return (
         <header className="bg-white text-black border-b border-gray-200 w-full z-[999] px-4 py-6">
-            <nav className="flex justify-between items-center space-x-2 max-w-screen-2xl mx-auto">
+            <nav className="flex justify-between items-center space-x-2 max-w-[1850px] mx-auto">
                 <Link
                     href="/"
                     className={`text-2xl lg:text-3xl uppercase font-semibold mr-10`}

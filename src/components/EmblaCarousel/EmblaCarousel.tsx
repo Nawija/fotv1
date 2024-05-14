@@ -79,7 +79,6 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         },
         []
     );
-    
 
     useEffect(() => {
         if (!emblaApi) return;
@@ -101,7 +100,11 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                             <div className="relative w-full h-80 xl:h-[44rem]">
                                 <Image
                                     className="object-cover object-center"
-                                    src={hero.img.url}
+                                    src={hero.img.responsiveImage.src}
+                                    blurDataURL={
+                                        hero.img.responsiveImage.base64
+                                    }
+                                    placeholder="blur"
                                     alt="Your alt text"
                                     layout="fill"
                                 />
