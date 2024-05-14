@@ -47,9 +47,9 @@ const AlignEmblaCarousel: React.FC<PropType> = (props) => {
                                             layout="fill"
                                         />
                                     </div>
-                                    <h4 className="text-xl font-bold">
+                                    <h3 className="text-xl font-bold">
                                         Loremipsum dolor
-                                    </h4>
+                                    </h3>
                                 </div>
                                 <p>
                                     Lorem, ipsum dolor sit amet consectetur

@@ -104,6 +104,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                                     blurDataURL={
                                         hero.img.responsiveImage.base64
                                     }
+                                    loading="eager"
                                     placeholder="blur"
                                     alt="Your alt text"
                                     layout="fill"

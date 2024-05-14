@@ -1,7 +1,6 @@
 import { performRequest } from "@/lib/datocms";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
-
 import { EmblaOptionsType } from "embla-carousel";
 
 const Hero = dynamic(() => import("./_components/Hero"));

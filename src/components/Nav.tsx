@@ -7,7 +7,7 @@ import React, { ComponentProps } from "react";
 
 import { Facebook, Instagram } from "lucide-react";
 import { NAV_LINKS } from "@/constants/Links";
-import { bitter } from "@/Fonts/Fonts";
+import { bitter } from "@/Fonts/fonts";
 
 export function Nav() {
     return (
@@ -33,14 +33,14 @@ export function Nav() {
                     </div>
 
                     <div className="flex justify-end space-x-3">
-                        <Link href="/" target="_blank">
+                        <Link href="/" target="_blank" aria-label="facebook">
                             <Facebook
                                 size={22}
                                 strokeWidth={1.4}
                                 className="text-zinc-500 hover:text-black transition-colors"
                             />
                         </Link>
-                        <Link href="/" target="_blank">
+                        <Link href="/" target="_blank" aria-label="instagram">
                             <Instagram
                                 size={22}
                                 strokeWidth={1.4}
@@ -60,7 +60,8 @@ export function NavLink(props: Omit<ComponentProps<typeof Link>, "className">) {
         <Link
             {...props}
             className={cn(
-                "p-2 font-medium text-sm text-zinc-500 relative group hover:text-black transition-colors", bitter.className,
+                "p-2 font-medium text-sm text-zinc-500 relative group hover:text-black transition-colors",
+                bitter.className,
                 pathname === props.href && "text-black"
             )}
         />
