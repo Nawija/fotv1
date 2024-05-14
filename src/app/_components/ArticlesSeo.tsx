@@ -10,12 +10,14 @@ export default function ArticlesSeo() {
                     Distinctio quo perferendis, dolores totam
                 </h2>
                 <div className="flex lg:flex-row lg:my-24 flex-col items-center justify-center">
-                    <Image
-                        className="lg:w-1/2 w-11/12"
-                        src={s1}
-                        layout="fill"
-                        alt="..."
-                    />
+                    <div className="relative lg:w-1/2 w-11/12 h-full">
+                        <Image
+                            className="h-full w-full"
+                            src={s1}
+                            layout="fill"
+                            alt="..."
+                        />
+                    </div>
                     <div className="p-10 space-y-4">
                         <h3 className="text-3xl font-bold">
                             Lorem ipsum dolor sit amet consectetur adipisicing
