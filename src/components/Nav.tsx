@@ -7,7 +7,7 @@ import React, { ComponentProps } from "react";
 
 import { Facebook, Instagram } from "lucide-react";
 import { NAV_LINKS } from "@/constants/Links";
-import { bitter } from "@/Fonts/fonts";
+import { bitter } from "@/app/fonts";
 
 export function Nav() {
     return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { bitter } from "@/Fonts/fonts";
+import { bitter } from "@/app/fonts";
 import { Mail, Phone } from "lucide-react";
 import { usePathname } from "next/navigation";
 import React from "react";

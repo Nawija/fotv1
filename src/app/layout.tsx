@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 import "@/app/globals.css";
 import { Nav } from "@/components/Nav";
-import { cormorant } from "@/Fonts/fonts";
+import { cormorant } from "@/app/fonts";
 import HeaderInfo from "@/components/HeaderInfo";
 import Footer from "@/components/Footer";
 import NextTopLoader from "nextjs-toploader";
