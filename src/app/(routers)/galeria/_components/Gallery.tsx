@@ -3,11 +3,16 @@
 import { useEffect } from "react";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
+import Image from "next/image";
 
 type Image = {
-    url: string;
-    width: number;
-    height: number;
+    responsiveImage: {
+        webpSrcSet: string;
+        width: number;
+        height: number;
+        base64: string;
+        src: string;
+    };
 };
 
 type GalleryProps = {
@@ -29,20 +34,23 @@ export default function Gallery({ allImages }: GalleryProps) {
     }, [allImages]);
 
     return (
-        <div className="pswp-gallery grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 m-2 ">
+        <div className="pswp-gallery grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2 m-2 max-w-[1900px] mx-auto">
             {allImages.map((image, index) => (
                 <a
-                    href={image.url}
-                    data-pswp-width={image.width}
-                    data-pswp-height={image.height}
+                    href={image.responsiveImage.src}
+                    data-pswp-width={image.responsiveImage.width}
+                    data-pswp-height={image.responsiveImage.height}
                     key={index}
                     target="_blank"
                     rel="noreferrer"
                 >
-                    <img
+                    <Image
                         className="object-cover w-full h-full -z-10"
-                        src={image.url}
+                        src={image.responsiveImage.webpSrcSet}
                         alt="xx"
+                        height={image.responsiveImage.height}
+                        width={image.responsiveImage.width}
+                        blurDataURL={image.responsiveImage.base64}
                     />
                 </a>
             ))}

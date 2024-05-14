@@ -32,7 +32,7 @@ export default async function Home() {
 
     const OPTIONS: EmblaOptionsType = { loop: true };
     return (
-        <>
+        <div className="anim-opacity">
             <Suspense
                 fallback={
                     <p className="text-red-500 text-6xl">Loading feed...</p>
@@ -61,6 +61,6 @@ export default async function Home() {
             >
                 <Reviews allHeros={allHeros} OPTIONS={OPTIONS} />
             </Suspense>
-        </>
+        </div>
     );
 }

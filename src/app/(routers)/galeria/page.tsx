@@ -4,9 +4,13 @@ const PAGE_CONTENT_QUERY = `
 {
   allGalers {
     img {
-      url
-      height
-      width
+      responsiveImage {
+        webpSrcSet
+        width
+        height
+        base64
+        src
+      }
     }
   }
 }`;
