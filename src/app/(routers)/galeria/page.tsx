@@ -32,6 +32,12 @@ export default async function page() {
 
     return (
         <div className="anim-opacity">
+            <a
+                download="https://www.datocms-assets.com/132533/1715521983-356403991_795416282133770_1453407733380961786_n.jpg"
+                className="py-12 bg-red-400 fixed right-0 z-50"
+            >
+                hello
+            </a>
             <Gallery allImages={allImages} />
         </div>
     );

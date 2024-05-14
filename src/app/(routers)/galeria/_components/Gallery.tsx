@@ -53,6 +53,7 @@ export default function Gallery({ allImages }: GalleryProps) {
                         blurDataURL={image.responsiveImage.base64}
                         placeholder="blur"
                     />
+                    
                 </a>
             ))}
         </div>
