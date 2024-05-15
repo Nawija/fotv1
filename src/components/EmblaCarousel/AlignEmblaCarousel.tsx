@@ -37,7 +37,7 @@ const AlignEmblaCarousel: React.FC<PropType> = (props) => {
                 <div className="embla__container">
                     {allHeros.map((hero: HeroType, index) => (
                         <div className="embla__slide" key={index}>
-                            <div className="p-10 border space-y-6">
+                            <div className="p-10 border bg-white space-y-6">
                                 <div className="flex items-center justify-start space-x-3">
                                     <div className="relative w-12 h-12">
                                         <Image

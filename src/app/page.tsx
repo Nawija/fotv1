@@ -2,6 +2,7 @@ import { performRequest } from "@/lib/datocms";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { EmblaOptionsType } from "embla-carousel";
+import People from "./_components/People";
 
 const Hero = dynamic(() => import("./_components/Hero"));
 const EmblaCarousel = dynamic(
@@ -50,6 +51,13 @@ export default async function Home() {
                 }
             >
                 <EmblaCarousel allHeros={allHeros} options={OPTIONS} />
+            </Suspense>
+            <Suspense
+                fallback={
+                    <p className="text-red-500 text-6xl">Loading feed...</p>
+                }
+            >
+                <People />
             </Suspense>
             <Suspense
                 fallback={
