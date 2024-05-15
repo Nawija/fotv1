@@ -1,5 +1,5 @@
 import Image from "next/image";
-import s1 from "../../../public/camera-7903435_1280.webp";
+import s1 from "../../../public/people/camera-7903435_1280.webp";
 
 const data = [
     {
