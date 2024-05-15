@@ -49,9 +49,9 @@ export default function People() {
             </h2>
             <section className="max-w-screen-2xl gap-4 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
                 {data.slice(0, 8).map((article) => (
-                    <div className="relative">
+                    <div key={article.title} className="relative">
                         <Image
-                            src={s1}
+                            src={article.img}
                             className="object-cover h-full w-full -z-10"
                             height={300}
                             width={300}
