@@ -54,16 +54,19 @@ const data = [
 export default function People() {
     return (
         <>
-            <h2 className="text-center text-2xl lg:text-3xl font-bold max-w-screen-lg mx-auto my-20 lg:my-24 px-4">
+            <h2 className="text-center text-2xl lg:text-4xl font-bold max-w-screen-lg mx-auto my-20 lg:my-24 px-4">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Distinctio quo perferendis, dolores totam
             </h2>
-            <section className="max-w-[1900px] gap-4 mx-auto px-4 flex">
+            <section className="gap-4 mx-auto px-4 grid grid-cols-4 max-w-screen-2xl">
                 {data.slice(0, 8).map((article) => (
-                    <div key={article.title} className="relative">
+                    <div
+                        key={article.title}
+                        className="relative"
+                    >
                         <Image
                             src={article.img}
-                            className="object-cover h-full w-full -z-10"
+                            className="object-contain h-full w-full -z-10"
                             height={300}
                             width={300}
                             alt="..."
