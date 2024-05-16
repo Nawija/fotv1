@@ -18,20 +18,19 @@ export function Nav() {
         <header
             ref={ref}
             style={{
-                transform: isInView ? "none" : "translateY(-80px)",
                 opacity: isInView ? 1 : 0,
                 transition: "all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1)",
             }}
             className="bg-white text-black border-b border-gray-200 w-full z-[999] px-4 py-6"
         >
-            <nav className="flex justify-between items-center space-x-2 max-w-[1850px] mx-auto">
+            <nav className="flex justify-between items-center space-x-2 max-w-screen-2xl mx-auto">
                 <Link
                     href="/"
                     style={{
                         transform: isInView ? "none" : "translateX(-80px)",
                         opacity: isInView ? 1 : 0,
                         transition:
-                            "all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) 0.8s",
+                            "all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1)",
                     }}
                     className={`text-2xl lg:text-3xl uppercase font-semibold mr-10`}
                 >

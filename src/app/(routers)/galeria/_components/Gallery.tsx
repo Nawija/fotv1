@@ -1,5 +1,7 @@
 "use client";
 
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 import { useEffect } from "react";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
@@ -20,6 +22,8 @@ type GalleryProps = {
 };
 
 export default function Gallery({ allImages }: GalleryProps) {
+    const ref = useRef<HTMLDivElement>(null);
+    const isInView = useInView(ref, { once: true });
     useEffect(() => {
         let lightbox = new PhotoSwipeLightbox({
             gallery: ".pswp-gallery",
@@ -34,9 +38,16 @@ export default function Gallery({ allImages }: GalleryProps) {
     }, [allImages]);
 
     return (
-        <div className="pswp-gallery grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2 m-2 max-w-[1900px] mx-auto">
+        <div
+            ref={ref}
+            className="pswp-gallery grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 m-2 max-w-[1650px] mx-auto px-2"
+        >
             {allImages.map((image, index) => (
                 <a
+                    style={{
+                        opacity: isInView ? 1 : 0,
+                        transition: `all 0.4s cubic-bezier(0.17, 0.55, 0.55, 1) ${index}00ms`,
+                    }}
                     href={image.responsiveImage.src}
                     data-pswp-width={image.responsiveImage.width}
                     data-pswp-height={image.responsiveImage.height}
@@ -53,7 +64,6 @@ export default function Gallery({ allImages }: GalleryProps) {
                         blurDataURL={image.responsiveImage.base64}
                         placeholder="blur"
                     />
-                    
                 </a>
             ))}
         </div>
