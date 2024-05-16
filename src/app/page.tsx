@@ -2,11 +2,14 @@ import { performRequest } from "@/lib/datocms";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { EmblaOptionsType } from "embla-carousel";
-import AutoScrollEmbla from "@/components/EmblaCarousel/AutoScrollEmbla";
 
 const Hero = dynamic(() => import("./_components/Hero"));
 const EmblaCarousel = dynamic(
     () => import("@/components/EmblaCarousel/EmblaCarousel"),
+    { ssr: false }
+);
+const AutoScrollEmbla = dynamic(
+    () => import("@/components/EmblaCarousel/AutoScrollEmbla"),
     { ssr: false }
 );
 const People = dynamic(() => import("./_components/People"), { ssr: false });
@@ -29,11 +32,23 @@ const PAGE_CONTENT_QUERY = `
         }
       }
     }
+    allTests {
+        title
+        desc
+        img {
+            responsiveImage {
+                width
+                height
+                base64
+                src
+              }
+        }
+      }
   }`;
 
 export default async function Home() {
     const {
-        data: { allHeros },
+        data: { allHeros, allTests },
     } = await performRequest({ query: PAGE_CONTENT_QUERY });
 
     const OPTIONS: EmblaOptionsType = { loop: true };
@@ -53,7 +68,14 @@ export default async function Home() {
             >
                 <EmblaCarousel allHeros={allHeros} options={OPTIONS} />
             </Suspense>
-            <AutoScrollEmbla allHeros={allHeros} options={OPTIONS} />
+
+            <Suspense
+                fallback={
+                    <p className="text-red-500 text-6xl">Loading feed...</p>
+                }
+            >
+                <AutoScrollEmbla allTests={allTests} options={OPTIONS} />
+            </Suspense>
             <Suspense
                 fallback={
                     <p className="text-red-500 text-6xl">Loading feed...</p>

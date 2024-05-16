@@ -7,48 +7,38 @@ import Image from "next/image";
 import { HeroType } from "@/types/types";
 
 type PropType = {
-    allHeros: [];
+    allTests: [];
     options?: EmblaOptionsType;
 };
 
 const AutoScrollEmbla: React.FC<PropType> = (props) => {
-    const { allHeros, options } = props;
+    const { allTests, options } = props;
     const [emblaRef] = useEmblaCarousel(options, [
         AutoScroll({ playOnInit: true }),
     ]);
 
     return (
-        <div className="embla">
+        <div className="embla bg-gray-100 py-12">
             <div className="embla__viewport" ref={emblaRef}>
                 <div className="embla__container">
-                    {allHeros.map((hero: HeroType, index) => (
+                    {allTests.map((item, index) => (
                         <div className="embla__slide" key={index}>
-                            <div className="relative w-full h-40 xl:h-[24rem]">
+                            <div className="relative flex">
                                 <Image
-                                    className="object-cover object-center"
-                                    src={hero.img.responsiveImage.src}
+                                    className="object-cover object-center mr-4 rounded-full w-20 h-20"
+                                    src={item.img.responsiveImage.src}
                                     blurDataURL={
-                                        hero.img.responsiveImage.base64
+                                        item.img.responsiveImage.base64
                                     }
                                     loading="eager"
+                                    width={33}
+                                    height={33}
                                     placeholder="blur"
                                     alt="Your alt text"
-                                    layout="fill"
                                 />
-                                <div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Corrupti asperiores,
-                                        impedit enim dicta quam illum ipsa
-                                        aliquam, vero ut nostrum soluta expedita
-                                        fugit iusto eligendi autem vel totam
-                                        odit tempora? Exercitationem eum, facere
-                                        repellendus cumque quibusdam suscipit
-                                        hic temporibus ipsam odit vero unde
-                                        nihil alias quas cupiditate vitae
-                                        necessitatibus consectetur omnis, qui,
-                                        voluptate beatae. Facilis!
-                                    </p>
+                                <div className="max-w-screen-sm flex-col flex">
+                                    <p className="text-2xl font-bold">{item.title}</p>
+                                    <p>{item.desc}</p>
                                 </div>
                             </div>
                         </div>
