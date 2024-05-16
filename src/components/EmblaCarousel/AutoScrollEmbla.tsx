@@ -4,7 +4,7 @@ import { EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import Image from "next/image";
-import { HeroType } from "@/types/types";
+import { TestType } from "@/types/types";
 
 type PropType = {
     allTests: [];
@@ -21,7 +21,7 @@ const AutoScrollEmbla: React.FC<PropType> = (props) => {
         <div className="embla bg-gray-100 py-12">
             <div className="embla__viewport" ref={emblaRef}>
                 <div className="embla__container">
-                    {allTests.map((item, index) => (
+                    {allTests.map((item: TestType, index) => (
                         <div className="embla__slide" key={index}>
                             <div className="relative flex">
                                 <Image
@@ -37,7 +37,9 @@ const AutoScrollEmbla: React.FC<PropType> = (props) => {
                                     alt="Your alt text"
                                 />
                                 <div className="max-w-screen-sm flex-col flex">
-                                    <p className="text-2xl font-bold">{item.title}</p>
+                                    <p className="text-2xl font-bold">
+                                        {item.title}
+                                    </p>
                                     <p>{item.desc}</p>
                                 </div>
                             </div>
