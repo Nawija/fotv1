@@ -3,18 +3,33 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { ComponentProps } from "react";
+import React, { ComponentProps, useState } from "react";
 
 import { Facebook, Instagram } from "lucide-react";
 import { NAV_LINKS } from "@/constants/Links";
 import { bitter } from "@/app/fonts";
 
 export default function Nav() {
+    const [showMenu, setShowMenu] = useState(false);
+    function handleShowMenu() {
+        setShowMenu(!showMenu);
+    }
     return (
         <header className="bg-white border-b w-full sticky top-0 z-[998]">
             <nav className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
                 <Logo />
-                <ul className="flex items-center justify-center">
+                <BurgerMenu onClick={handleShowMenu} />
+
+                {/* ----------- Desctop --------- */}
+                <ul className="items-center justify-center lg:flex hidden text-base">
+                    <AllMapingNavLinks />
+                </ul>
+                {/* ----------- Mobile ---------- */}
+                <ul
+                    className={`${
+                        showMenu ? "translate-x-0" : "-translate-x-full"
+                    } flex flex-col absolute top-full text-lg transition-transform left-0 w-full bg-white space-y-6 p-10 h-screen items-center justify-center lg:hidden`}
+                >
                     <AllMapingNavLinks />
                 </ul>
             </nav>
@@ -24,9 +39,29 @@ export default function Nav() {
 
 export function Logo() {
     return (
-        <Link href="/" className="text-xl font-bold uppercase">
+        <Link href="/" className="md:text-xl text-base font-bold uppercase">
             Jarek Olszewski
         </Link>
+    );
+}
+
+type BurgerMenuProps = Omit<
+    ComponentProps<"button">,
+    "onClick" | "disabled"
+> & {
+    onClick: () => void;
+};
+export function BurgerMenu(props: BurgerMenuProps) {
+    const BurgerStyle = "w-4 h-px bg-black";
+    return (
+        <button
+            {...props}
+            className="flex flex-col transition-transform items-center justify-center space-y-1 lg:hidden"
+        >
+            <div className={`${BurgerStyle}`} />
+            <div className={`${BurgerStyle}`} />
+            <div className={`${BurgerStyle}`} />
+        </button>
     );
 }
 
@@ -36,7 +71,7 @@ export function NavLink(props: Omit<ComponentProps<typeof Link>, "className">) {
         <Link
             {...props}
             className={cn(
-                "px-2 py-4 font-medium text-sm transition-colors text-gray-400 hover:text-black",
+                "px-2 py-4 font-medium transition-colors text-zinc-400 hover:text-black",
                 bitter.className,
                 pathname === props.href && "text-black"
             )}

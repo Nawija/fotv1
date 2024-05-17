@@ -33,7 +33,7 @@ export default async function page() {
 
     return (
         <>
-            <div className="space-y-8 text-center py-12 max-w-lg mx-auto flex items-center justify-center flex-col">
+            <div className="space-y-8 text-center p-6 lg:py-12 max-w-lg mx-auto flex items-center justify-center flex-col">
                 <h1>Fotografia Slubna</h1>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
