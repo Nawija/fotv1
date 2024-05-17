@@ -16,21 +16,20 @@ export default function Hero() {
                 style={{
                     transform: isInView ? "none" : "translateY(80px)",
                     opacity: isInView ? 1 : 0,
-                    transition: "all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1)",
+                    transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1)",
                 }}
-                className="text-2xl lg:text-4xl xl:text-7xl font-bold"
+                className="text-2xl lg:text-4xl xl:text-7xl font-extrabold uppercase"
             >
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste
-                numquam cumque eos.
+                Profesjonalny Fotograf w Siedlcach
             </h1>
             <p
                 style={{
                     transform: isInView ? "none" : "translateY(80px)",
                     opacity: isInView ? 1 : 0,
                     transition:
-                        "all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s",
+                        "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s",
                 }}
-                className="text-stone-600 lg:text-xl max-w-screen-md mx-auto"
+                className="text-black lg:text-xl max-w-screen-md mx-auto"
             >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
                 neque odio veritatis dignissimos animi ipsam eaque a voluptas
@@ -41,19 +40,13 @@ export default function Hero() {
                     transform: isInView ? "none" : "translateX(-80px)",
                     opacity: isInView ? 1 : 0,
                     transition:
-                        "all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) 0.8s",
+                        "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.8s",
                 }}
                 className="flex items-center justify-center space-x-2"
             >
                 <Link
-                    href="/"
-                    className="uppercase px-5 py-2 font-bold lg:text-lg text-xs tracking-wider bg-black text-white"
-                >
-                    Zobacz
-                </Link>
-                <Link
                     href="/galeria"
-                    className="uppercase px-5 py-2 font-bold lg:text-lg text-xs tracking-wider bg-color text-white"
+                    className="uppercase px-5 py-2 font-bold lg:text-lg text-xs tracking-wider bg-black text-white"
                 >
                     Portfolio
                 </Link>

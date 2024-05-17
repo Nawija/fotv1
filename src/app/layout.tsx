@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { cn } from "@/lib/utils";
 
 import "@/app/globals.css";
-import { Nav } from "@/components/Nav";
+import Nav from "@/components/Nav";
 import { cormorant } from "@/app/fonts";
-import HeaderInfo from "@/components/HeaderInfo";
 import Footer from "@/components/Footer";
 import NextTopLoader from "nextjs-toploader";
 
@@ -21,11 +20,11 @@ export default function RootLayout({
     return (
         <html lang="pl">
             <head>
-                <meta name="theme-color" content="#ffffff" />
+                <meta name="theme-color" content="#F6F6F6" />
             </head>
             <body
                 className={cn(
-                    "bg-[##FFFFFF] min-h-screen font-sans antialiased",
+                    "bg-[#F6F6F6] min-h-screen text-lg font-sans antialiased",
                     cormorant.variable
                 )}
             >
@@ -42,9 +41,8 @@ export default function RootLayout({
                     zIndex={1600}
                     showAtBottom={false}
                 />
-                <HeaderInfo />
                 <Nav />
-                <main className="w-full overflow-x-hidden min-h-screen">
+                <main className="w-full overflow-x-hidden min-h-screen px-2">
                     {children}
                 </main>
                 <Footer />
