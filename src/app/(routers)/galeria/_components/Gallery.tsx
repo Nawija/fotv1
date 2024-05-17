@@ -40,13 +40,13 @@ export default function Gallery({ allImages }: GalleryProps) {
     return (
         <div
             ref={ref}
-            className="pswp-gallery grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 m-2 max-w-[1650px] mx-auto px-2"
+            className="pswp-gallery grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2 m-2 max-w-[1900px] mx-auto"
         >
             {allImages.map((image, index) => (
                 <a
                     style={{
                         opacity: isInView ? 1 : 0,
-                        transition: `all 0.4s cubic-bezier(0.17, 0.55, 0.55, 1) ${index}00ms`,
+                        transition: `all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) ${index}00ms`,
                     }}
                     href={image.responsiveImage.src}
                     data-pswp-width={image.responsiveImage.width}

@@ -23,9 +23,9 @@ const AutoScrollEmbla: React.FC<PropType> = (props) => {
                 <div className="embla__container">
                     {allTests.map((item: TestType, index) => (
                         <div className="embla__slide" key={index}>
-                            <div className="relative flex">
+                            <div className="relative flex flex-col lg:flex-row space-y-4 lg:space-y-0">
                                 <Image
-                                    className="object-cover object-center mr-4 rounded-full w-20 h-20"
+                                    className="object-cover object-center mr-4 rounded-full w-16 h-16"
                                     src={item.img.responsiveImage.src}
                                     blurDataURL={
                                         item.img.responsiveImage.base64
