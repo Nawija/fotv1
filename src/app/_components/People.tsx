@@ -34,7 +34,7 @@ export default function People() {
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Distinctio quo perferendis, dolores totam
             </h2>
-            <section className="gap-4 mx-auto px-4 grid lg:grid-cols-4 max-w-screen-2xl">
+            <section className="gap-4 mx-auto mb-12 lg:mb-24 px-4 grid lg:grid-cols-4 max-w-screen-2xl">
                 {data.slice(0, 4).map((article) => (
                     <div key={article.title} className="relative">
                         <div className="relative ">

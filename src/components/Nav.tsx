@@ -57,20 +57,7 @@ export function Nav() {
                     </div>
 
                     <div className="flex justify-end space-x-3">
-                        <Link href="/" target="_blank" aria-label="facebook">
-                            <Facebook
-                                size={22}
-                                strokeWidth={1.4}
-                                className="text-zinc-500 hover:text-black transition-colors"
-                            />
-                        </Link>
-                        <Link href="/" target="_blank" aria-label="instagram">
-                            <Instagram
-                                size={22}
-                                strokeWidth={1.4}
-                                className="text-zinc-500 hover:text-black transition-colors"
-                            />
-                        </Link>
+                        <SocialMediaIcons />
                     </div>
                 </div>
             </nav>
@@ -89,5 +76,26 @@ export function NavLink(props: Omit<ComponentProps<typeof Link>, "className">) {
                 pathname === props.href && "text-black"
             )}
         />
+    );
+}
+
+export function SocialMediaIcons() {
+    return (
+        <>
+            <Link href="/" target="_blank" aria-label="facebook">
+                <Facebook
+                    size={22}
+                    strokeWidth={1.4}
+                    className="text-zinc-500 hover:text-black transition-colors"
+                />
+            </Link>
+            <Link href="/" target="_blank" aria-label="instagram">
+                <Instagram
+                    size={22}
+                    strokeWidth={1.4}
+                    className="text-zinc-500 hover:text-black transition-colors"
+                />
+            </Link>
+        </>
     );
 }

@@ -69,19 +69,20 @@ export default async function Home() {
                 <EmblaCarousel allHeros={allHeros} options={OPTIONS} />
             </Suspense>
 
-            <Suspense
-                fallback={
-                    <p className="text-red-500 text-6xl">Loading feed...</p>
-                }
-            >
-                <AutoScrollEmbla allTests={allTests} options={OPTIONS} />
-            </Suspense>
+            
             <Suspense
                 fallback={
                     <p className="text-red-500 text-6xl">Loading feed...</p>
                 }
             >
                 <People />
+            </Suspense>
+            <Suspense
+                fallback={
+                    <p className="text-red-500 text-6xl">Loading feed...</p>
+                }
+            >
+                <AutoScrollEmbla allTests={allTests} options={OPTIONS} />
             </Suspense>
             <Suspense
                 fallback={
