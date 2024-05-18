@@ -14,7 +14,7 @@ export default function FotografiaPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 max-w-screen-xl mx-auto gap-2">
                         {FOTOGRAFIA_CARDS.map((card, index) => (
                             <FotografiaCard
-                                index={index}
+                                key={index}
                                 title={card.title}
                                 href={card.href}
                                 imgUrl={card.img}
@@ -68,15 +68,13 @@ function FotografiaCard({
     title,
     href,
     imgUrl,
-    index,
 }: {
     title: string;
     href: string;
     imgUrl: string;
-    index: number;
 }) {
     return (
-        <div key={index} className="relative">
+        <div className="relative">
             <img
                 className="h-full w-full object-cover"
                 src={imgUrl}
