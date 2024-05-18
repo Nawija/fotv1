@@ -14,15 +14,18 @@ export default function Nav() {
     function handleShowMenu() {
         setShowMenu(!showMenu);
     }
+    function closeMenu() {
+        setShowMenu(false);
+    }
     return (
         <header className="bg-white border-b w-full sticky top-0 z-[998]">
             <nav className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
                 <Logo />
-                <BurgerMenu onClick={handleShowMenu} />
+                <BurgerMenu onClick={handleShowMenu} showMenu={showMenu} />
 
                 {/* ----------- Desctop --------- */}
-                <ul className="items-center justify-center lg:flex hidden text-base">
-                    <AllMapingNavLinks />
+                <ul className="items-center justify-center lg:flex hidden text-sm">
+                    <AllMappingNavLinks closeMenu={closeMenu} />
                 </ul>
                 {/* ----------- Mobile ---------- */}
                 <ul
@@ -30,7 +33,7 @@ export default function Nav() {
                         showMenu ? "translate-x-0" : "-translate-x-full"
                     } flex flex-col absolute top-full text-lg transition-transform left-0 w-full bg-white space-y-6 p-10 h-screen items-center justify-center lg:hidden`}
                 >
-                    <AllMapingNavLinks />
+                    <AllMappingNavLinks closeMenu={closeMenu} />
                 </ul>
             </nav>
         </header>
@@ -50,32 +53,67 @@ type BurgerMenuProps = Omit<
     "onClick" | "disabled"
 > & {
     onClick: () => void;
+    showMenu: boolean;
 };
-export function BurgerMenu(props: BurgerMenuProps) {
-    const BurgerStyle = "w-4 h-px bg-black";
+export function BurgerMenu({ showMenu, ...props }: BurgerMenuProps) {
+    const BurgerStyle = "w-4 h-px bg-black transition-transform";
     return (
         <button
             {...props}
-            className="flex flex-col transition-transform items-center justify-center space-y-1 lg:hidden"
+            className="flex flex-col items-center justify-center space-y-1 lg:hidden"
         >
-            <div className={`${BurgerStyle}`} />
-            <div className={`${BurgerStyle}`} />
-            <div className={`${BurgerStyle}`} />
+            <div
+                className={`${BurgerStyle} ${
+                    showMenu ? "transform rotate-[405deg] translate-y-1.5" : ""
+                }`}
+            />
+            <div className={`${BurgerStyle} ${showMenu ? "opacity-0" : ""}`} />
+            <div
+                className={`${BurgerStyle} ${
+                    showMenu ? "transform -rotate-45 -translate-y-1" : ""
+                }`}
+            />
         </button>
     );
 }
 
-export function NavLink(props: Omit<ComponentProps<typeof Link>, "className">) {
+type NavLinkProps = Omit<ComponentProps<typeof Link>, "className"> & {
+    closeMenu: () => void;
+};
+
+export function NavLink({ closeMenu, ...props }: NavLinkProps) {
     const pathname = usePathname();
     return (
         <Link
             {...props}
+            onClick={() => {
+                props.onClick?.();
+                closeMenu();
+            }}
             className={cn(
                 "px-2 py-4 font-medium transition-colors text-zinc-400 hover:text-black",
                 bitter.className,
                 pathname === props.href && "text-black"
             )}
         />
+    );
+}
+
+type AllMappingNavLinksProps = {
+    closeMenu: () => void;
+};
+
+export function AllMappingNavLinks({ closeMenu }: AllMappingNavLinksProps) {
+    return (
+        <>
+            {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                    <NavLink href={link.href} closeMenu={closeMenu}>
+                        {link.title}
+                    </NavLink>
+                </li>
+            ))}
+        </>
     );
 }
 

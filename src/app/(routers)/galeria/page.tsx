@@ -1,6 +1,7 @@
 import { performRequest } from "@/lib/datocms";
 import Gallery from "./_components/Gallery";
 import { GripHorizontal } from "lucide-react";
+import PageHeader from "@/components/PageHeader";
 const PAGE_CONTENT_QUERY = `
 {
   allGalers {
@@ -32,16 +33,12 @@ export default async function page() {
     const allImages = allGalers.flatMap((gallery: GalleryType) => gallery.img);
 
     return (
-        <>
-            <div className="space-y-8 text-center p-6 lg:py-12 max-w-lg mx-auto flex items-center justify-center flex-col">
-                <h1>Fotografia Slubna</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Fugiat animi voluptatem iusto.
-                </p>
-                <GripHorizontal />
-            </div>
+        <div className="anim-opacity">
+            <PageHeader
+                title="Fotograf Siedlce"
+                desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam nemo autem iure."
+            />
             <Gallery allImages={allImages} />
-        </>
+        </div>
     );
 }

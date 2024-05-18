@@ -6,7 +6,7 @@ export const performRequest = async ({
 }) => {
     
     const response = await fetch("https://graphql.datocms.com/", {
-        next: { revalidate: 0 },
+        next: { revalidate: 30 },
         headers: {
             Authorization: `Bearer ${process.env.NEXT_DATOCMS_API_TOKEN}`,
             ...(includeDrafts ? { "X-Include-Drafts": "true" } : {}),

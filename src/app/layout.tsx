@@ -6,6 +6,7 @@ import Nav from "@/components/Nav";
 import { cormorant } from "@/app/fonts";
 import Footer from "@/components/Footer";
 import NextTopLoader from "nextjs-toploader";
+import SocialMedia from "@/components/SocialMedia";
 
 export const metadata: Metadata = {
     title: "Fotograf",
@@ -42,6 +43,7 @@ export default function RootLayout({
                     showAtBottom={false}
                 />
                 <Nav />
+                <SocialMedia />
                 <main className="w-full overflow-x-hidden min-h-screen px-2">
                     {children}
                 </main>
