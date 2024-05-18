@@ -116,17 +116,6 @@ export function AllMappingNavLinks({ closeMenu }: AllMappingNavLinksProps) {
     );
 }
 
-export function AllMapingNavLinks() {
-    return (
-        <>
-            {NAV_LINKS.map((link) => (
-                <li>
-                    <NavLink href={link.href}>{link.title}</NavLink>
-                </li>
-            ))}
-        </>
-    );
-}
 export function SocialMediaIcons() {
     return (
         <>
