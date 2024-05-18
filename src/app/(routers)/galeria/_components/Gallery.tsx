@@ -39,7 +39,7 @@ export default function Gallery({ allImages }: GalleryProps) {
         <div className="bg-white py-2">
             <div className="pswp-gallery grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 m-2 max-w-screen-xl mx-auto">
                 {allImages.map((image, index) => (
-                    <ImgGallery image={image} index={index} />
+                    <ImgGallery key={index} image={image} />
                 ))}
             </div>
         </div>
@@ -48,21 +48,19 @@ export default function Gallery({ allImages }: GalleryProps) {
 
 type ImgGalleryProps = {
     image: GalleryImage;
-    index: number;
 };
 
-function ImgGallery({ image, index }: ImgGalleryProps) {
+function ImgGallery({ image }: ImgGalleryProps) {
     const widthHeightRatio =
         image.responsiveImage.height / image.responsiveImage.width;
     const galleryHeight = Math.ceil(330 * widthHeightRatio);
     const imageSapns = Math.ceil(galleryHeight / 10) + 1;
     return (
-        <div key={index} style={{ gridRow: `span ${imageSapns}` }}>
+        <div style={{ gridRow: `span ${imageSapns}` }}>
             <a
                 href={image.responsiveImage.src}
                 data-pswp-width={image.responsiveImage.width}
                 data-pswp-height={image.responsiveImage.height}
-                // key={index}
                 target="_blank"
                 rel="noreferrer"
                 className="group relative"
