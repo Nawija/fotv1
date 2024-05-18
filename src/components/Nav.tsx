@@ -87,7 +87,6 @@ export function NavLink({ closeMenu, ...props }: NavLinkProps) {
         <Link
             {...props}
             onClick={() => {
-                props.onClick?.();
                 closeMenu();
             }}
             className={cn(
