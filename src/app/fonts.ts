@@ -1,8 +1,8 @@
-import { Inter,Bitter, Cormorant } from "next/font/google";
+import { Inter, Bitter, Cormorant } from "next/font/google";
 export const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 export const cormorant = Cormorant({
     subsets: ["latin"],
-    weight: ["400", "500", "600"],
+    weight: ["400", "500", "600", "700"],
     variable: "--font-sans",
 });
 export const bitter = Bitter({

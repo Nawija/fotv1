@@ -1,77 +1,97 @@
 "use client";
 
-import { useRef } from "react";
-import { useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { ComponentProps } from "react";
+import React, { ComponentProps, useState } from "react";
 
 import { Facebook, Instagram } from "lucide-react";
 import { NAV_LINKS } from "@/constants/Links";
 import { bitter } from "@/app/fonts";
 
-export function Nav() {
-    const ref = useRef<HTMLDivElement>(null);
-    const isInView = useInView(ref, { once: true });
+export default function Nav() {
+    const [showMenu, setShowMenu] = useState(false);
+    function handleShowMenu() {
+        setShowMenu(!showMenu);
+    }
+    function closeMenu() {
+        setShowMenu(false);
+    }
     return (
-        <header
-            ref={ref}
-            style={{
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1)",
-            }}
-            className="bg-white text-black border-b border-gray-200 w-full z-[999] px-4 py-6"
-        >
-            <nav className="flex justify-between items-center space-x-2 max-w-screen-2xl mx-auto">
-                <Link
-                    href="/"
-                    style={{
-                        transform: isInView ? "none" : "translateX(-80px)",
-                        opacity: isInView ? 1 : 0,
-                        transition:
-                            "all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1)",
-                    }}
-                    className={`text-2xl lg:text-3xl uppercase font-semibold mr-10`}
+        <header className="bg-white border-b w-full sticky top-0 z-[998]">
+            <nav className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
+                <Logo />
+                <BurgerMenu onClick={handleShowMenu} showMenu={showMenu} />
+
+                {/* ----------- Desctop --------- */}
+                <ul className="items-center justify-center lg:flex hidden text-sm">
+                    <AllMappingNavLinks closeMenu={closeMenu} />
+                </ul>
+                {/* ----------- Mobile ---------- */}
+                <ul
+                    className={`${
+                        showMenu ? "translate-x-0" : "-translate-x-full"
+                    } flex flex-col absolute top-full text-lg transition-transform left-0 w-full bg-white space-y-6 p-10 h-screen items-center justify-center lg:hidden`}
                 >
-                    Jarek Olszewski
-                </Link>
-
-                <div className="flex items-center justify-center">
-                    <div
-                        className={`space-x-2 font-bold text-lg uppercase hidden lg:block mr-20`}
-                    >
-                        {NAV_LINKS.map((link, index) => (
-                            <NavLink
-                                style={{
-                                    opacity: isInView ? 1 : 0,
-                                    transition: `all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) 0.${index}s`,
-                                }}
-                                key={link.title}
-                                href={link.href}
-                            >
-                                {link.title}
-                                <div className="h-px w-full absolute bottom-1 left-0 bg-color scale-x-0 group-hover:scale-x-50 transition-transform rounded-xl" />
-                            </NavLink>
-                        ))}
-                    </div>
-
-                    <div className="flex justify-end space-x-3">
-                        <SocialMediaIcons />
-                    </div>
-                </div>
+                    <AllMappingNavLinks closeMenu={closeMenu} />
+                </ul>
             </nav>
         </header>
     );
 }
 
-export function NavLink(props: Omit<ComponentProps<typeof Link>, "className">) {
+export function Logo() {
+    return (
+        <Link href="/" className="md:text-xl text-base font-bold uppercase">
+            Jarek Olszewski
+        </Link>
+    );
+}
+
+type BurgerMenuProps = Omit<
+    ComponentProps<"button">,
+    "onClick" | "disabled"
+> & {
+    onClick: () => void;
+    showMenu: boolean;
+};
+export function BurgerMenu({ showMenu, ...props }: BurgerMenuProps) {
+    const BurgerStyle = "w-4 h-px bg-black transition-transform";
+    return (
+        <button
+            {...props}
+            className="flex flex-col items-center justify-center space-y-1 lg:hidden"
+        >
+            <div
+                className={`${BurgerStyle} ${
+                    showMenu ? "transform rotate-[405deg] translate-y-1.5" : ""
+                }`}
+            />
+            <div className={`${BurgerStyle} ${showMenu ? "opacity-0" : ""}`} />
+            <div
+                className={`${BurgerStyle} ${
+                    showMenu ? "transform -rotate-45 -translate-y-1" : ""
+                }`}
+            />
+        </button>
+    );
+}
+
+type NavLinkProps = Omit<ComponentProps<typeof Link>, "className"> & {
+    closeMenu: () => void;
+};
+
+export function NavLink({ closeMenu, ...props }: NavLinkProps) {
     const pathname = usePathname();
     return (
         <Link
             {...props}
+            onClick={() => {
+                props.onClick?.();
+                closeMenu();
+            }}
             className={cn(
-                "p-2 font-medium text-sm text-zinc-500 relative group hover:text-black transition-colors",
+                "px-2 py-4 font-medium transition-colors text-zinc-400 hover:text-black",
                 bitter.className,
                 pathname === props.href && "text-black"
             )}
@@ -79,6 +99,35 @@ export function NavLink(props: Omit<ComponentProps<typeof Link>, "className">) {
     );
 }
 
+type AllMappingNavLinksProps = {
+    closeMenu: () => void;
+};
+
+export function AllMappingNavLinks({ closeMenu }: AllMappingNavLinksProps) {
+    return (
+        <>
+            {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                    <NavLink href={link.href} closeMenu={closeMenu}>
+                        {link.title}
+                    </NavLink>
+                </li>
+            ))}
+        </>
+    );
+}
+
+export function AllMapingNavLinks() {
+    return (
+        <>
+            {NAV_LINKS.map((link) => (
+                <li>
+                    <NavLink href={link.href}>{link.title}</NavLink>
+                </li>
+            ))}
+        </>
+    );
+}
 export function SocialMediaIcons() {
     return (
         <>
