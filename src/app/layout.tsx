@@ -43,7 +43,7 @@ export default function RootLayout({
                     showAtBottom={false}
                 />
                 <Nav />
-                <SocialMedia />
+                {/* <SocialMedia /> */}
                 <main className="w-full overflow-x-hidden min-h-screen px-2">
                     {children}
                 </main>
