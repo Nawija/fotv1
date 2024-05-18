@@ -5,18 +5,20 @@ import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 import Image from "next/image";
 
-type Image = {
-    responsiveImage: {
-        webpSrcSet: string;
-        width: number;
-        height: number;
-        base64: string;
-        src: string;
-    };
+type ResponsiveImage = {
+    webpSrcSet: string;
+    width: number;
+    height: number;
+    base64: string;
+    src: string;
+};
+
+type GalleryImage = {
+    responsiveImage: ResponsiveImage;
 };
 
 type GalleryProps = {
-    allImages: Image[];
+    allImages: GalleryImage[];
 };
 
 export default function Gallery({ allImages }: GalleryProps) {
@@ -34,7 +36,7 @@ export default function Gallery({ allImages }: GalleryProps) {
     }, [allImages]);
 
     return (
-        <div className="pswp-gallery grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 m-2 max-w-screen-xl mx-auto">
+        <div className="pswp-gallery grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 m-2 max-w-screen-xl mx-auto">
             {allImages.map((image) => (
                 <ImgGallery image={image} />
             ))}
@@ -42,16 +44,17 @@ export default function Gallery({ allImages }: GalleryProps) {
     );
 }
 
-function ImgGallery({ image }: GalleryProps) {
+type ImgGalleryProps = {
+    image: GalleryImage;
+};
+
+function ImgGallery({ image }: ImgGalleryProps) {
     const widthHeightRatio =
         image.responsiveImage.height / image.responsiveImage.width;
     const galleryHeight = Math.ceil(330 * widthHeightRatio);
     const imageSapns = Math.ceil(galleryHeight / 10) + 1;
     return (
-        <div
-            className=""
-            style={{ gridRow: `span ${imageSapns}` }}
-        >
+        <div className="" style={{ gridRow: `span ${imageSapns}` }}>
             <a
                 href={image.responsiveImage.src}
                 data-pswp-width={image.responsiveImage.width}
