@@ -12,8 +12,9 @@ export default function FotografiaPage() {
             <div className="bg-white py-12 lg:py-24 border-y">
                 <div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 max-w-screen-xl mx-auto gap-2">
-                        {FOTOGRAFIA_CARDS.map((card) => (
+                        {FOTOGRAFIA_CARDS.map((card, index) => (
                             <FotografiaCard
+                                index={index}
                                 title={card.title}
                                 href={card.href}
                                 imgUrl={card.img}
@@ -67,14 +68,20 @@ function FotografiaCard({
     title,
     href,
     imgUrl,
+    index,
 }: {
     title: string;
     href: string;
     imgUrl: string;
+    index: number;
 }) {
     return (
-        <div key={title} className="relative">
-            <img className="h-full w-full object-cover" src={imgUrl} />
+        <div key={index} className="relative">
+            <img
+                className="h-full w-full object-cover"
+                src={imgUrl}
+                alt="..."
+            />
             <div className="absolute w-full h-full bg-black/40 left-0 top-0 flex items-center justify-center flex-col text-white">
                 <h2 className="text-2xl font-medium">{title}</h2>
                 <BtnMain href={href} />
